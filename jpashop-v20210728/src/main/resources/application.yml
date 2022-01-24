@@ -1,4 +1,4 @@
-spring:
+  spring:
   datasource:
     url: jdbc:mariadb://startream.iptime.org:4306/test
     username: test
@@ -10,9 +10,10 @@ spring:
       ddl-auto: create
     properties:
       hibernate:
-#        show_sql: true
         format_sql: true
 
-logging.level:
-  org.hibernate.SQL: debug
-#  org.hibernate.type: trace
+  logging:
+    level:
+      org.hibernate:
+        type.descriptor.sql: trace #show parameter binding
+        SQL: DEBUG

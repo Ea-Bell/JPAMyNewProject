@@ -25,27 +25,28 @@ import static org.junit.Assert.*;
 @Rollback(value = false)
 public class MemberTestServiceTest {
 
-    @Autowired MemberTestService memberTestService;
     @Autowired
     MemberTestRepository memberTestRepository;
+
     @Autowired
-    EntityManager em;
+    MemberTestService memberTestService;
 
 
     @Test
     public void 회원가입 () throws  Exception{
 
         TestMember tm = new TestMember();
-        tm.setName("testMemberA");
+        tm.setUsername("testMemberA");
         //when
-        Long savedId = memberTestRepository.save(tm);
-        TestMember findTestMember = memberTestRepository.findOne(savedId);
+
+        memberTestService.join(tm);
+        TestMember findTestMember = memberTestRepository.findOne(tm.getId());
 
 
 
         //then
         assertThat(findTestMember.getId()).isEqualTo(tm.getId());
-        assertThat(findTestMember.getName()).isEqualTo(tm.getName());
+        assertThat(findTestMember.getId()).isEqualTo(tm.getId());
 
     }
 }

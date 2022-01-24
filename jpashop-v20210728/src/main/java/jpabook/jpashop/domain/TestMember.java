@@ -13,7 +13,15 @@ import javax.persistence.Id;
 @Setter
 public class TestMember {
 
-    @Id @GeneratedValue @Column(name="member_id")
+    @Id @GeneratedValue
     Long id;
-    String name;
+    String username;
+
+    @Override
+    public String toString() {
+        return "TestMember{" +
+                "id=" + id +
+                ", name='" + username + '\'' +
+                '}';
+    }
 }
