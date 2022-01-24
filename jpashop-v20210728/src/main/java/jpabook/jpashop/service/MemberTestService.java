@@ -20,12 +20,6 @@ public class MemberTestService {
     @Autowired
     UserRepository userRepository;
 
-
-//    public void join(TestMember tm){
-//        System.out.println(" MemberTestServisce입니다.");
-//        memberTestRepository.save(tm);
-//
-//    }
     public void joinUser(UserVO userVO){
         System.out.println(" MemberTestServisce입니다." );
         userRepository.save(userVO);
@@ -34,4 +28,5 @@ public class MemberTestService {
     public List<UserVO> findUser(){
         return userRepository.findAll();
     }
+
 }
