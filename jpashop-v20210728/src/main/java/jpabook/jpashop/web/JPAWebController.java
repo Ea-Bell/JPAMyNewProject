@@ -2,8 +2,10 @@ package jpabook.jpashop.web;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jpabook.jpashop.domain.TestMember;
+import jpabook.jpashop.domain.UserVO;
 import jpabook.jpashop.repository.MemberTestRepository;
 
+import jpabook.jpashop.repository.UserRepository;
 import jpabook.jpashop.service.MemberTestService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,35 +21,15 @@ import javax.persistence.PersistenceContext;
 @RequiredArgsConstructor
 public class JPAWebController {
 
-
-    @PersistenceContext
-    private final EntityManager em;
-
-    @Autowired
-    MemberTestRepository memberTestRepository;
-
-    @Autowired
-    MemberTestService memberTestService;
+    private final MemberTestService  memberTestService;
+    private final UserRepository userRepository;
      ObjectMapper objectMapper  =new ObjectMapper();
 
-    @PostMapping("/jpa")
-    String testController(@RequestBody @ModelAttribute TestMember member) throws Exception {
-
-        log.info("member {}",member.getId());
-
-
-
-
-        return "OK";
-    }
 
 
     @ResponseBody
     @GetMapping("/testjpa")
     String testController() throws Exception {
-
-
-
 
         TestMember member =new TestMember();
         member.setId(10L);
@@ -58,11 +40,21 @@ public class JPAWebController {
 
         System.out.println("============================");
 
-        memberTestService.join(member);
+
 
 //        memberTestRepository.save(member);
         System.out.println("============================");
-        return "/index";
+        return "index";
+    }
+
+    @ResponseBody
+    @GetMapping("/testUser")
+    String testUser() throws Exception{
+        UserVO userVO = new UserVO( "test");
+        System.out.println("============================");
+        memberTestService.joinUser(userVO);
+        System.out.println("============================");
+        return "test";
     }
 
 }

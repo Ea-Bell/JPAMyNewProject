@@ -3,10 +3,7 @@ package jpabook.jpashop.domain;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -14,8 +11,12 @@ import javax.persistence.Id;
 public class TestMember {
 
     @Id @GeneratedValue
-    Long id;
-    String username;
+    private Long id;
+
+    @Column(name="username")
+    private String username;
+
+
 
     @Override
     public String toString() {

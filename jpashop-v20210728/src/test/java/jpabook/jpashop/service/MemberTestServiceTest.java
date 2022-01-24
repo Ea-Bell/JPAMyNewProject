@@ -1,6 +1,7 @@
 package jpabook.jpashop.service;
 
 import jpabook.jpashop.domain.TestMember;
+import jpabook.jpashop.domain.UserVO;
 import jpabook.jpashop.repository.MemberTestRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
@@ -32,21 +33,14 @@ public class MemberTestServiceTest {
     MemberTestService memberTestService;
 
 
+
+
     @Test
-    public void 회원가입 () throws  Exception{
+    public void 회원가입2() throws Exception{
 
-        TestMember tm = new TestMember();
-        tm.setUsername("testMemberA");
-        //when
-
-        memberTestService.join(tm);
-        TestMember findTestMember = memberTestRepository.findOne(tm.getId());
-
-
-
-        //then
-        assertThat(findTestMember.getId()).isEqualTo(tm.getId());
-        assertThat(findTestMember.getId()).isEqualTo(tm.getId());
+        //given
+        UserVO userVO = new UserVO();
+        userVO.setName("test");
 
     }
 }

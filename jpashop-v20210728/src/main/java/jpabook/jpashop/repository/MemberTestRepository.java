@@ -6,11 +6,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Repository
-
 public class MemberTestRepository {
 
     @PersistenceContext
     private   EntityManager em;
+
 
     public void save(TestMember tm) {
         System.out.println("MemberTestRepossitory입니다.");
