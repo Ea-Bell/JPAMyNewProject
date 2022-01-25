@@ -30,4 +30,10 @@ public class UserRepository {
                 .setParameter("username", username)
                 .getResultList();
     }
+    public List<UserVO> findByUserName(String username){
+        return em.createQuery("seelct u from UserVO u where u.username=:username",
+                UserVO.class)
+                .setParameter("username", username)
+                .getResultList();
+    }
 }

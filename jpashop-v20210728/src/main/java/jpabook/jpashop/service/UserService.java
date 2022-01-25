@@ -1,5 +1,6 @@
 package jpabook.jpashop.service;
 
+<<<<<<< HEAD
 import jpabook.jpashop.domain.KakaoVO;
 
 import java.util.List;
@@ -18,4 +19,8 @@ public interface UserService {
 
     public KakaoVO findOne(Long userID);
 
+=======
+public interface UserService {
+
+>>>>>>> origin/main
 }
