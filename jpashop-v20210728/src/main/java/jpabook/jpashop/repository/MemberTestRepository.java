@@ -20,4 +20,5 @@ public class MemberTestRepository {
         return em.find(TestMember.class, id);
     }
 
+
 }
